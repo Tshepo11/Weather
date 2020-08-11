@@ -1,0 +1,24 @@
+var button = document.querySelector('.button')
+var place = document.querySelector('.InputValue');
+var name = document.querySelector('.name');
+var Desc = document.querySelector('.desc');
+var Temp = document.querySelector('.temp');
+
+//must happen when we click the button, addEventLister( )
+button.addEventListener('click', function(){
+	fetch('https://api.openweathermap.org/data/2.5/weather?q='+InputValue.value+'&appid=62d518c7b1dea218d3ac8510de571407')
+.then(response => response.json())        
+.then(data => {
+var nameValue = data['name'];
+var tempValue = data['main']['temp'];
+var descValue = data['weather'][0]['description'];
+name.innerHTML = nameValue;
+temp.innerHTML = tempValue;
+desc.innerHTML = descValue;
+
+
+})
+
+
+.catch(err=>Alert("Error Town"))
+})
